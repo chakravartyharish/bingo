@@ -1,4 +1,4 @@
-# bingo project!!!
+# bingo project!!
 
 https://www.w3spaces-preview.com/sensoryminds/index.html
 
