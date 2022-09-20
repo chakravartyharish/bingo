@@ -1,5 +1,7 @@
 # bingo project
 
+https://www.w3spaces-preview.com/sensoryminds/index.html
+
 This project is built using HTML, CSS and only JavaScript.
 
 README.md: This is the file that you are reading now. You can change the text in this file to leave information to others to understand. 
