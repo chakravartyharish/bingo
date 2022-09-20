@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html>
+    <head>
+       <title>Bingo Game</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body>
+
+        <h1>Bingo Code Challenge - Front End - SensoryMinds</h1>
+    <div id="mainDiv">
+      <div id="card">
+        <div class="A" id="cell0"></div>
+        <div class="A" id="cell1"></div>
+        <div class="A" id="cell2"></div>
+        <div class="A" id="cell3"></div>
+        <div class="A" id="cell4"></div>
+
+        <div class="A" id="cell5"></div>
+        <div class="A" id="cell6"></div>
+        <div class="A" id="cell7"></div>
+        <div class="A" id="cell8"></div>
+        <div class="A" id="cell9"></div>
+
+        <div class="A" id="cell10"></div>
+        <div class="A" id="cell11"></div>
+        <div class="A" id="cell12" style="color: #ff0000"></div>
+        <div class="A" id="cell13"></div>
+        <div class="A" id="cell14"></div>
+
+        <div class="A" id="cell15"></div>
+        <div class="A" id="cell16"></div>
+        <div class="A" id="cell17"></div>
+        <div class="A" id="cell18"></div>
+        <div class="A" id="cell19"></div>
+
+        <div class="A" id="cell20"></div>
+        <div class="A" id="cell21"></div>
+        <div class="A" id="cell22"></div>
+        <div class="A" id="cell23"></div>
+        <div class="A" id="cell24"></div>
+      </div>
+
+      <div id="menu">
+        <button class="ShuffleCard" id="newShuffledCard">ShuffleCard</button>
+        <div id="paletteofPlayer">
+          <p class="p">Select Player:</p>
+          <button id="ClickWhite" class="ClickPlayer">P1</button>
+          <button id="ClickBlue" class="ClickPlayer">P2</button>
+          <button id="ClickRed" class="ClickPlayer">P3</button>
+          <button id="ClickGreen" class="ClickPlayer">P4</button>
+          <button id="ClickPurple" class="ClickPlayer">P5</button>
+          <button id="ClickOrange" class="ClickPlayer">P6</button>
+        </div>
+
+        <button class="CleanCard" id="cleanCard">cleanCard</button>
+      </div>
+    </div>
+
+    <div id="date" class="datetime"></div>
+
+    <div class="canvasRel"></div>
+
+        
+        <!-- Load external JavaScript -->
+         <script src="https://rawgithub.com/soulwire/sketch.js/master/js/sketch.min.js"></script>
+        <script src="scripts.js"></script>
+        
+    </body>
+
+</html>
