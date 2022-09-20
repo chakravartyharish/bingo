@@ -6,70 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       @media screen and (min-width: 300px) {
-        * {
-          margin: 0;
-          padding: 0;
-          border: 0;
-          outline: 0;
-        }
-
         body {
           background: #58a9f6;
-          /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-          font-size: 14px;
-          line-height: 1.5;
-          color: #333; */
         }
-
-        #mainDiv {
-          margin: 0 auto;
-          width: 480px;
-        }
-
         #card {
-          position: absolute;
-          margin: 10 auto;
+          justify-content: center;
+          align-items: center;
+          /* border: 2px rgb(54, 233, 14) double; */
+          /* background-color: #88ff00; */
           border-spacing: 10px;
-          border-collapse: separate;
-          font-size: large;
+          border-radius: 5px;
+          cursor: default;
+          display: grid;
+          grid-gap: 4px;
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: auto auto auto auto auto;
+          cursor: pointer;
+        }
+
+        .A {
+          background-color: rgb(240, 233, 26);
+          text-align: center;
+          padding: 5px;
+          justify-content: center;
+          align-items: center;
           font-weight: bold;
-          text-align: center;
-          color: rgb(232, 232, 237);
-        }
-
-        h1 {
-          margin-top: 20px;
-          font: 30px sans-serif bold !important;
-          text-align: center;
-          color: hsl(0, 0%, 100%);
-        }
-        td {
-          padding: 15px;
-          height: 60px;
-          width: 60px;
-          border-radius: 10px;
-          background: #fff;
-          font: 10px roboto;
-          cursor: pointer;
-          background: rgb(96, 126, 177);
-          font: 18px arial bold italic monospace;
+          font-size: 8px;
+          border: 12px;
+          border-radius: 5px;
           cursor: pointer;
         }
 
-        td:hover {
-          transform: scale(1.5);
-          color: rgb(9, 9, 232);
-          opacity: 0.7;
-          transform: rotate(1.1deg);
+        .A:hover {
+          transform: scale(1.2);
+          color: rgb(228, 221, 216);
+          opacity: 0.9;
+          transform: rotate(1.01deg);
         }
 
         .ShuffleCard {
-          margin-top: 60px;
+          margin-top: 20px;
           height: 45px;
           width: 100px;
           background: rgba(255, 0, 13, 0.6);
           font: 15px roboto italic;
           color: #fff;
+          cursor: pointer;
+        }
+
+        .CleanCard {
+          margin-top: 60px;
+          margin-left: 40px;
+          height: 45px;
+          width: 100px;
+          background: yellow;
+          font: 15px roboto italic;
+          font-weight: bold;
+          color: rgb(199, 21, 21);
+          cursor: pointer;
+          margin-left: -290px;
+        }
+
+        .p {
+          margin-top: 20px;
+          height: 22x;
+          width: 90px;
+          background: white;
+          font: 15px roboto italic;
+          font-weight: bold;
+          color: rgb(199, 21, 21);
           cursor: pointer;
         }
 
@@ -80,23 +85,18 @@
           transform: rotate(1.1deg);
         }
 
-        #paletteofPlayer {
-          margin-top: 60px;
-          height: 180px;
-          background: rgba(217, 215, 215, 0.6);
-          font: 15px/28px roboto;
-          text-align: center;
-          color: white;
-          cursor: pointer;
+        .CleanCard:hover {
+          transform: scale(1.5);
+          color: rgb(228, 221, 216);
+          opacity: 0.9;
+          transform: rotate(1.1deg);
         }
 
-        #menu {
-          position: relative;
-          right: 140px;
-          width: 100px;
-          height: 450px;
-          margin-top: 0px;
-          cursor: pointer;
+        h1 {
+          margin-top: 20px;
+          font: 30px sans-serif bold !important;
+          text-align: center;
+          color: hsl(0, 0%, 100%);
         }
 
         .ClickPlayer {
@@ -128,11 +128,12 @@
         }
 
         .datetime {
-          margin: 50px 50px 50px 1100px;
+          margin: 20px 50px 10px 4px;
           position: absolute !important;
+          text-align: center;
           height: 20px;
-          width: 140px;
-          background: red;
+          width: 150px;
+          background: black;
           font-style: italic;
           font-weight: 200;
           font: 15px bold;
@@ -145,59 +146,42 @@
   <body>
     <h1>Bingo Code Challenge - Front End - SensoryMinds</h1>
     <div id="mainDiv">
-      <table id="card">
-        <!-- <caption>
-          Bingo Code Challenge - Front End - SensoryMinds
-        </caption>
-        <tr>
-          <th>B</th>
-          <th>I</th>
-          <th>N</th>
-          <th>G</th>
-          <th>O</th>
-        </tr> -->
-        <tr>
-          <td id="cell0"></td>
-          <td id="cell1"></td>
-          <td id="cell2"></td>
-          <td id="cell3"></td>
-          <td id="cell4"></td>
-        </tr>
-        <tr>
-          <td id="cell5"></td>
-          <td id="cell6"></td>
+      <div id="card">
+        <div class="A" id="cell0"></div>
+        <div class="A" id="cell1"></div>
+        <div class="A" id="cell2"></div>
+        <div class="A" id="cell3"></div>
+        <div class="A" id="cell4"></div>
 
-          <td id="cell7"></td>
-          <td id="cell8"></td>
-          <td id="cell9"></td>
-        </tr>
-        <tr>
-          <td id="cell10"></td>
-          <td id="cell11"></td>
-          <td id="cell12" style="color: #ff0000"></td>
-          <td id="cell13"></td>
-          <td id="cell14"></td>
-        </tr>
-        <tr>
-          <td id="cell15"></td>
-          <td id="cell16"></td>
-          <td id="cell17"></td>
-          <td id="cell18"></td>
-          <td id="cell19"></td>
-        </tr>
-        <tr>
-          <td id="cell20"></td>
-          <td id="cell21"></td>
-          <td id="cell22"></td>
-          <td id="cell23"></td>
-          <td id="cell24"></td>
-        </tr>
-      </table>
+        <div class="A" id="cell5"></div>
+        <div class="A" id="cell6"></div>
+        <div class="A" id="cell7"></div>
+        <div class="A" id="cell8"></div>
+        <div class="A" id="cell9"></div>
+
+        <div class="A" id="cell10"></div>
+        <div class="A" id="cell11"></div>
+        <div class="A" id="cell12" style="color: #ff0000"></div>
+        <div class="A" id="cell13"></div>
+        <div class="A" id="cell14"></div>
+
+        <div class="A" id="cell15"></div>
+        <div class="A" id="cell16"></div>
+        <div class="A" id="cell17"></div>
+        <div class="A" id="cell18"></div>
+        <div class="A" id="cell19"></div>
+
+        <div class="A" id="cell20"></div>
+        <div class="A" id="cell21"></div>
+        <div class="A" id="cell22"></div>
+        <div class="A" id="cell23"></div>
+        <div class="A" id="cell24"></div>
+      </div>
 
       <div id="menu">
         <button class="ShuffleCard" id="newShuffledCard">ShuffleCard</button>
         <div id="paletteofPlayer">
-          <p>Players</p>
+          <p class="p">Select Player:</p>
           <button id="ClickWhite" class="ClickPlayer">P1</button>
           <button id="ClickBlue" class="ClickPlayer">P2</button>
           <button id="ClickRed" class="ClickPlayer">P3</button>
@@ -206,7 +190,7 @@
           <button id="ClickOrange" class="ClickPlayer">P6</button>
         </div>
 
-        <button class="ShuffleCard" id="cleanCard">cleanCard</button>
+        <button class="CleanCard" id="cleanCard">cleanCard</button>
       </div>
     </div>
 
@@ -236,14 +220,14 @@
           "Games",
           "Hat",
           "Invitation",
-          "January 1st",
+          "Jan 1st",
           "Midnight",
           "Music",
           "Love",
-          "New Year's Eve",
+          "NewYearEve",
           "Parade",
           "Resolution",
-          "Auld Lang Syne",
+          "AuldSyne",
           "Sparklers",
           "Streamers",
           "Times Square",
