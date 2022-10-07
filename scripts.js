@@ -1,4 +1,4 @@
- window.addEventListener("load", function () {
+  window.addEventListener("load", function () {
         var row = []
         var col = []
         var diag = []
@@ -71,6 +71,62 @@
         document
           .getElementById("cleanCard")
           .addEventListener("click", cleanCard)
+
+        let btncounter = document.querySelector("#btncounter")
+        btncounter.addEventListener("click", function () {
+          localStorage.setItem("count", 0)
+          localStorage.removeItem("count")
+          updateCount()
+        })
+
+        function getCount() {
+          let count = Number(localStorage.getItem("count")) || 1
+          localStorage.setItem("count", count + 1)
+          return count
+        }
+
+        function updateCount() {
+          let count = Number(localStorage.getItem("count")) || 0
+          if (count > 0) {
+            document.getElementById(
+              "name"
+            ).innerHTML = `Congratulations! You have won ${count - 1} Bingo!`
+          } else {
+            document.getElementById("name").innerHTML = ``
+          }
+        }
+
+        updateCount()
+
+        function confirmAction(count) {
+          windowReload1()
+          let confirmAction = confirm("Bingo!!! Would you like to continue ?")
+          if (confirmAction) {
+            windowReload()
+            getCount()
+            updateCount()
+          } else {
+            windowReload1()
+            getCount()
+            updateCount()
+            balloons()
+            Confetti()
+            localStorage.setItem("count", 0)
+          }
+        }
+
+        // window reload if the game is over
+        const windowReload = () => {
+          setTimeout(function () {
+            window.location.reload()
+          }, 10)
+        }
+
+        const windowReload1 = () => {
+          setTimeout(function () {
+            window.location.reload()
+          }, 5000)
+        }
 
         // here is the code for the color palette of the players
         // and the click event for each player to change the color of the cell when clicked on it.
@@ -306,15 +362,8 @@
           }
         }
 
-        // window reload if the game is over
-        const windowReload = () => {
-          setTimeout(function () {
-            window.location.reload()
-          }, 5000)
-        }
-
         // confetti animation
-       function Confetti() {
+        function Confetti() {
           const usedColors = [
             "#FF6633",
             "#FFB399",
@@ -450,9 +499,10 @@
           design()
         }
 
-
         // here is the code for checking the row of the clicked cell and comparing it the isClicked array to see if the row is already clicked or not
         // and generating the confetti animation if the row is complete
+
+        const myHarry = true
         const checkRow = () => {
           if (
             compareArray(isClicked, [
@@ -463,9 +513,8 @@
               "cell4",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            //alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell5",
@@ -475,9 +524,11 @@
               "cell9",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            if (reloadCount === 1) {
+              //alert(`" Bingo!!! you won bingo " ${reloadCount} " times!!!"`)
+            }
+
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell10",
@@ -487,9 +538,8 @@
               "cell14",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            // alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell15",
@@ -499,9 +549,8 @@
               "cell19",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            //alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell20",
@@ -511,9 +560,8 @@
               "cell24",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            // alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           }
         }
 
@@ -580,9 +628,8 @@
               "cell20",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            // alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell1",
@@ -592,9 +639,8 @@
               "cell21",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            //alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell2",
@@ -604,9 +650,8 @@
               "cell22",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            //alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell3",
@@ -616,9 +661,8 @@
               "cell23",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            //alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell6",
@@ -632,9 +676,8 @@
               "cell18",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            // alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           } else if (
             compareArray(isClicked, [
               "cell4",
@@ -644,9 +687,8 @@
               "cell24",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            //alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           }
         }
 
@@ -723,9 +765,8 @@
               "cell24",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            // alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           }
         }
 
@@ -739,9 +780,8 @@
               "cell20",
             ])
           ) {
-            balloons()
-            Confetti()
-            windowReload()
+            //alert(`" Bingo!!! you won bingo " ${reloadCount} " times."`)
+            confirmAction()
           }
         }
 
@@ -774,7 +814,7 @@
 
         // to clean the card after the game is over and shuffle the cards again
 
-        cleanCard()
+        // cleanCard()
         newShuffledCard()
 
         const date = new Date().toLocaleDateString()
@@ -888,4 +928,3 @@
       //     checkWin()
       //   })
       // }
-  
